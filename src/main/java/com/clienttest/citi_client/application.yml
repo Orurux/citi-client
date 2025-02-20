@@ -1,0 +1,13 @@
+resilience4j:
+  retry:
+    instances:
+      transactionRetry:
+        maxAttempts: 3  # Número de reintentos
+        waitDuration: 2s  # Espera entre intentos
+  circuitbreaker:
+    instances:
+      transactionCircuitBreaker:
+        failureRateThreshold: 50  # Se activa si el 50% de las llamadas fallan
+        waitDurationInOpenState: 10s  # Espera 10s antes de reintentar
+api:
+  url: http://localhost:8081
